@@ -1,0 +1,121 @@
+/* RESET / BASIC */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the HTML & BODY span the full browser space */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+/* BODY:
+   - White text over black
+   - background.png fills any resolution (cover)
+*/
+body {
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  background: url("background.png") center center no-repeat;
+  background-size: cover;
+}
+
+/* WRAPPER:
+   - flex layout
+   - 2rem padding so the zone’s border isn’t flush against the browser edges
+   - fill the full browser size, minus that padding
+*/
+.wrapper {
+  display: flex;
+  flex-direction: row;     /* side-by-side by default */
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;  /* so padding is included within that height */
+}
+
+/* TEXT-ZONE:
+   - On wide screens, half the width, full height
+   - More opaque background color, border, radius
+*/
+.text-zone {
+  width: 50%;
+  height: 100%;          /* fill full vertical space */
+  padding: 2rem;
+
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid #444;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;       /* scroll inside if the text is very tall */
+}
+
+/* LOGO */
+.logo {
+  width: 200px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+  margin-left: -30px;
+}
+
+/* HEADINGS */
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* PARAGRAPHS */
+main p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* LINKS */
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* BUTTON */
+.button-container {
+  margin-top: 2rem;
+}
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background: #fff;
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: background 0.2s ease;
+}
+.cta-button:hover {
+  background: #cfcfcf;
+}
+
+/* MEDIA QUERY:
+   If the window is at or below ~960px wide (approx half of a 1920px screen),
+   put the zone on top, full width, half the height (50%). */
+@media (max-width: 960px) {
+  .wrapper {
+    flex-direction: column; /* stack top-to-bottom */
+  }
+
+  .text-zone {
+    width: 100%;   /* full width now */
+    height: 50%;   /* top half of the screen vertically */
+    margin-bottom: 1rem; /* small gap below if you want more space */
+  }
+}
