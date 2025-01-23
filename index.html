@@ -2,26 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sodium Announcement</title>
+  <title>Sodium - Goodbye!</title>
   <link rel="stylesheet" href="styles.css">
 
   <!-- Example: Google Fonts “Inter” -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="sodium-S.png" type="image/png">
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap"
     rel="stylesheet"
   >
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+
 </head>
 <body>
   <div class="wrapper">
     <div class="text-zone">
       <header>
-        <img
-          src="sodiumwhite.png"
-          alt="Logo"
-          class="logo"
-        />
+        <a href="https://earlyacces.sodium.tools" target="_blank" rel="noopener noreferrer">
+          <img
+            src="sodiumwhite.png"
+            alt="Logo"
+            class="logo"
+          />
+        </a>
       </header>
 
       <main>
@@ -31,7 +39,7 @@
 
         <p>
           Sincerely,<br>
-          <strong>  -Siege.</strong>
+          <strong> -Siege.</strong>
         </p>
 
         <div class="button-container">
@@ -41,10 +49,42 @@
             rel="noopener noreferrer"
             class="cta-button"
           >
-            Sodium
+            Visit Sodium
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
           </a>
         </div>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <div class="video-box">
+          <video
+            id="myVideo"
+            src="videoplayback.mp4"
+            autoplay
+            controls
+          >
+            Your browser does not support this!
+          </video>
+
+          <script>
+            // Attempt to play unmuted on page load
+            document.addEventListener("DOMContentLoaded", () => {
+              const video = document.getElementById("myVideo");
+              video.muted = false;  // Ensure not muted
+              video.volume = 1.0;   // Full volume
+
+              // Try playing (may fail due to browser autoplay policies)
+              video.play().catch(err => {
+                console.warn("Autoplay with sound was blocked:", err);
+              });
+            });
+          </script>
+        </div>
       </main>
+    </div>
+    <div class="image-zone">
+      <img src="Sodium-S.png" alt="Sodium Logo" class="sodium-logo" />
     </div>
   </div>
 </body>
